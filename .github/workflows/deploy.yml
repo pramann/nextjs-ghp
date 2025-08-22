@@ -38,7 +38,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: 'pnpm'
+          cache: "pnpm"
 
       - name: Install dependencies
         run: pnpm install
@@ -46,6 +46,11 @@ jobs:
       - name: Setup Pages
         id: setup_pages
         uses: actions/configure-pages@v5
+
+      - name: aa
+        run: echo $PAGES_BASE_PATH2
+        env:
+          PAGES_BASE_PATH2: ${{ steps.setup_pages.outputs.base_path }}
 
       - name: Restore cache
         uses: actions/cache@v4
